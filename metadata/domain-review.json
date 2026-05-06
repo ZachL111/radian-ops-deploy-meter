@@ -1,0 +1,73 @@
+{
+  "repo": "radian-ops-deploy-meter",
+  "language": "JavaScript",
+  "category": "Automation",
+  "goal": "Develop a JavaScript command-oriented project for deploy scenarios with safe and unsafe fixtures, remediation hints, and single-node deterministic mode.",
+  "review_model": {
+    "terms": [
+      "dry-run spread",
+      "rename risk",
+      "operator cost",
+      "idempotence"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "dry-run spread",
+      "signal": 55,
+      "slack": 28,
+      "drag": 25,
+      "confidence": 80,
+      "score": 143,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "rename risk",
+      "signal": 44,
+      "slack": 22,
+      "drag": 28,
+      "confidence": 66,
+      "score": 92,
+      "lane": "hold"
+    },
+    {
+      "name": "edge",
+      "focus": "operator cost",
+      "signal": 66,
+      "slack": 20,
+      "drag": 13,
+      "confidence": 75,
+      "score": 188,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "idempotence",
+      "signal": 56,
+      "slack": 22,
+      "drag": 15,
+      "confidence": 52,
+      "score": 141,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "dry-run spread",
+      "signal": 68,
+      "slack": 48,
+      "drag": 9,
+      "confidence": 59,
+      "score": 216,
+      "lane": "ship"
+    }
+  ]
+}
