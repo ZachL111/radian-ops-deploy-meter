@@ -1,0 +1,32 @@
+{
+  "index": 201,
+  "phase": 2,
+  "batch": 23,
+  "name": "radian-ops-deploy-meter",
+  "planned_name": "radian-ops-deploy-meter",
+  "language": "JavaScript",
+  "category": "Automation",
+  "goal": "Develop a JavaScript command-oriented project for deploy scenarios with safe and unsafe fixtures, remediation hints, and single-node deterministic mode.",
+  "repository_url": "https://github.com/ZachL111/radian-ops-deploy-meter",
+  "verification_command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1",
+  "model": {
+    "inputs": [
+      "demand",
+      "capacity",
+      "latency",
+      "risk",
+      "weight"
+    ],
+    "threshold": 169,
+    "risk_penalty": 5,
+    "latency_penalty": 3,
+    "weight_bonus": 2,
+    "decision_rule": "accept when score is greater than or equal to threshold, otherwise review"
+  },
+  "quality_gates": [
+    "readme constraint scan",
+    "fixture presence check",
+    "metadata JSON parse",
+    "language verifier"
+  ]
+}
